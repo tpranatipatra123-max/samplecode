@@ -1,5 +1,6 @@
 from http.server import HTTPServer
 from router import StudentRouter
+from database.connection import init_database
 
 
 def run_server(port=8000):
