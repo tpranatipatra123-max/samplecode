@@ -1,9 +1,8 @@
-// Shortcut for selecting elements by ID
-export const $ = (id) => document.getElementById(id);
+// Load an HTML file into a target element
+export async function loadComponent(selector, url) {
+  const target = document.querySelector(selector);
+  if (!target) return;
 
-// Converts an HTML string into a real DOM element
-export function createElement(html) {
-  const div = document.createElement("div");
-  div.innerHTML = html.trim();
-  return div.firstChild; // return the generated element
+  const html = await fetch(url).then(res => res.text());
+  target.innerHTML = html;
 }
